@@ -1,0 +1,36 @@
+﻿@page "/"
+@page "/campaigns"
+@layout MainLayout
+
+<PageTitle>Campanhas</PageTitle>
+
+<MudPaper Class="pa-4">
+    <MudPaper Class="pa-4 mt-4">
+        <MudText Typo="Typo.h5">Lista de Campanhas</MudText>
+    </MudPaper>
+
+    <MudTable Items="@CampaignsList" Loading="@loading">
+        <ToolBarContent>
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/campaigns/create" StartIcon="@Icons.Material.Filled.Add">
+                Criar Campanha
+            </MudButton>
+        </ToolBarContent>
+        <HeaderContent>
+            <MudTh>Título</MudTh>
+            <MudTh>Descrição</MudTh>
+            <MudTh>Data de Início</MudTh>
+            <MudTh>Data de Fim</MudTh>
+            <MudTh>Ações</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="Título">@context.Title</MudTd>
+            <MudTd DataLabel="Descrição">@context.Description</MudTd>
+            <MudTd DataLabel="Data de Início">@context.Start.Value.ToShortDateString()</MudTd>
+            <MudTd DataLabel="Data de Fim">@context.End.Value.ToShortDateString()</MudTd>
+            <MudTd DataLabel="Ações">
+                <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" OnClick="@(() => EditCampaign(context))" />
+                <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error" OnClick="@(() => DeleteCampaign(context))" />
+            </MudTd>
+        </RowTemplate>
+    </MudTable>
+</MudPaper>

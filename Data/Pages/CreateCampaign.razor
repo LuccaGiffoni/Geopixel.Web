@@ -1,0 +1,125 @@
+﻿@page "/campaigns/create"
+@using System.Runtime.InteropServices.JavaScript
+@layout MainLayout
+
+<PageTitle>Criar Campanha</PageTitle>
+
+<MudPaper Class="pa-4" >
+    <MudPaper Class="pa-4 mt-4" MinHeight="150">
+        <MudGrid Class="pa-4 mt-4">
+            <MudText Typo="Typo.h5">Criar nova Campanha</MudText>
+            <MudSpacer />
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="@(async () => await HandleValidSubmit())">Criar</MudButton>
+            <MudButton Variant="Variant.Filled" Color="Color.Tertiary" OnClick="@(async () => await Cancel())">Cancelar</MudButton>
+        </MudGrid>
+    </MudPaper>
+    
+    <MudForm @ref="@Form" Class="mt-4">
+        <MudGrid Spacing="5">
+            <MudItem>
+                <MudPaper Class="pa-4" Elevation="5">
+                    <MudText Typo="Typo.h6">Informações da Campanha</MudText>
+                    <MudDivider/>
+
+                    <MudTextField Label="Título" HelperText="O nome da campanha" Class="mt-8"
+                                  @bind-Value="Campaign.Title" For="@(() => Campaign.Title)"
+                                  Immediate="true" Required="true" Counter="50" MaxLength="50"/>
+
+                    <MudTextField Label="Descrição" HelperText="Uma breve descrição da campanha" Class="mt-8"
+                                  @bind-Value="Campaign.Description" For="@(() => Campaign.Description)"
+                                  Immediate="true" Required="true" Counter="225" MaxLength="225"/>
+
+                    <MudDateRangePicker Label="Datas de Início e Fim" @bind-DateRange="DateRange" Class="mt-4"
+                                        PlaceholderStart="Start Date" PlaceholderEnd="End Date" />
+
+                </MudPaper>
+            </MudItem>
+
+            <MudItem>
+                <MudPaper Class="pa-4" Elevation="5">
+                    <MudText Typo="Typo.h6">Informações dos Itens</MudText>
+                    <MudDivider/>
+                        
+                    <MudGrid Class="pa-4">
+                        <MudItem>
+                            <MudExpansionPanels MultiExpansion="true">
+                                <MudExpansionPanel Text="@ReturnItemDescription(0)" MaxHeight="300">
+                                    <MudTextField Label="Descrição" HelperText="Uma breve descrição do item"
+                                                  @bind-Value="Campaign.Items[0].Description" For="@(() => Campaign.Items[0].Description)"
+                                                  Immediate="true" Required="true" Counter="30" MaxLength="30"/>
+                                    <MudNumericField Label="Quantidade" Class="mt-8"
+                                                     @bind-Value="Campaign.Items[0].Quantity" For="@(() => Campaign.Items[0].Quantity)"
+                                                     Immediate="true" Required="true" />
+                                </MudExpansionPanel>
+                                <MudExpansionPanel Text="@ReturnItemDescription(1)" MaxHeight="300">
+                                    <MudTextField Label="Descrição" HelperText="Uma breve descrição do item"
+                                                  @bind-Value="Campaign.Items[1].Description" For="@(() => Campaign.Items[1].Description)"
+                                                  Immediate="true" Required="true" Counter="30" MaxLength="30"/>
+                                    <MudNumericField Label="Quantidade" Class="mt-8"
+                                                     @bind-Value="Campaign.Items[1].Quantity" For="@(() => Campaign.Items[1].Quantity)"
+                                                     Immediate="true" Required="true" />
+                                </MudExpansionPanel>
+                                <MudExpansionPanel Text="@ReturnItemDescription(2)" MaxHeight="300">
+                                    <MudTextField Label="Descrição" HelperText="Uma breve descrição do item"
+                                                  @bind-Value="Campaign.Items[2].Description" For="@(() => Campaign.Items[2].Description)"
+                                                  Immediate="true" Required="true" Counter="30" MaxLength="30"/>
+                                    <MudNumericField Label="Quantidade" Class="mt-8"
+                                                     @bind-Value="Campaign.Items[2].Quantity" For="@(() => Campaign.Items[2].Quantity)"
+                                                     Immediate="true" Required="true" />
+                                </MudExpansionPanel>
+                            </MudExpansionPanels>
+                        </MudItem>
+
+                        <MudItem>
+                            <MudExpansionPanels MultiExpansion="true">
+                                <MudExpansionPanel Text="@ReturnItemDescription(3)" MaxHeight="300">
+                                    <MudTextField Label="Descrição" HelperText="Uma breve descrição do item"
+                                                  @bind-Value="Campaign.Items[3].Description" For="@(() => Campaign.Items[3].Description)"
+                                                  Immediate="true" Required="true" Counter="30" MaxLength="30"/>
+                                    <MudNumericField Label="Quantidade" Class="mt-8"
+                                                     @bind-Value="Campaign.Items[3].Quantity" For="@(() => Campaign.Items[3].Quantity)"
+                                                     Immediate="true" Required="true" />
+                                </MudExpansionPanel>
+                                <MudExpansionPanel Text="@ReturnItemDescription(4)" MaxHeight="300">
+                                    <MudTextField Label="Descrição" HelperText="Uma breve descrição do item"
+                                                  @bind-Value="Campaign.Items[4].Description" For="@(() => Campaign.Items[4].Description)"
+                                                  Immediate="true" Required="true" Counter="30" MaxLength="30"/>
+                                    <MudNumericField Label="Quantidade" Class="mt-8"
+                                                     @bind-Value="Campaign.Items[4].Quantity" For="@(() => Campaign.Items[4].Quantity)"
+                                                     Immediate="true" Required="true"/>
+                                </MudExpansionPanel>
+                                <MudExpansionPanel Text="@ReturnItemDescription(5)" MaxHeight="300">
+                                    <MudTextField Label="Descrição" HelperText="Uma breve descrição do item"
+                                                  @bind-Value="Campaign.Items[5].Description" For="@(() => Campaign.Items[5].Description)"
+                                                  Immediate="true" Required="true" Counter="30" MaxLength="30"/>
+                                    <MudNumericField Label="Quantidade" Class="mt-8"
+                                                     @bind-Value="Campaign.Items[5].Quantity" For="@(() => Campaign.Items[5].Quantity)"
+                                                     Immediate="true" Required="true"/>
+                                </MudExpansionPanel>
+                            </MudExpansionPanels>
+                        </MudItem>
+                        
+                        <MudItem>
+                            <MudExpansionPanels>
+                                <MudExpansionPanel Text="@ReturnItemDescription(6)" MaxHeight="300">
+                                    <MudTextField Label="Descrição" HelperText="Uma breve descrição do item"
+                                                  @bind-Value="Campaign.Items[6].Description" For="@(() => Campaign.Items[6].Description)"
+                                                  Immediate="true" Counter="30" MaxLength="30"/>
+                                    <MudNumericField Label="Quantidade" Class="mt-8"
+                                                     @bind-Value="Campaign.Items[6].Quantity" For="@(() => Campaign.Items[6].Quantity)" Immediate="true"/>
+                                </MudExpansionPanel>
+                                <MudExpansionPanel Text="@ReturnItemDescription(7)" MaxHeight="300">
+                                    <MudTextField Label="Descrição" HelperText="Uma breve descrição do item"
+                                                  @bind-Value="Campaign.Items[7].Description" For="@(() => Campaign.Items[7].Description)"
+                                                  Immediate="true" Counter="30" MaxLength="30"/>
+                                    <MudNumericField Label="Quantidade" Class="mt-8"
+                                                     @bind-Value="Campaign.Items[7].Quantity" For="@(() => Campaign.Items[7].Quantity)" Immediate="true"/>
+                                </MudExpansionPanel>
+                            </MudExpansionPanels>
+                        </MudItem>
+                    </MudGrid>
+                </MudPaper>
+            </MudItem>
+        </MudGrid>
+    </MudForm>
+</MudPaper>
