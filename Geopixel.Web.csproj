@@ -22,4 +22,10 @@
     <Content Include=".github\workflows\main.yml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <AdditionalFiles Include="Pages\Campaigns.razor" />
+    <AdditionalFiles Include="Pages\CreateCampaign.razor" />
+    <AdditionalFiles Include="Pages\UpdateCampaign.razor" />
+  </ItemGroup>
+
 </Project>

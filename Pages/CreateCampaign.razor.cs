@@ -3,7 +3,7 @@ using Geopixel.Web.Data.Services.Interfaces;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
 
-namespace Geopixel.Web.Data.Pages;
+namespace Geopixel.Web.Pages;
 
 public partial class CreateCampaign : ComponentBase
 {
