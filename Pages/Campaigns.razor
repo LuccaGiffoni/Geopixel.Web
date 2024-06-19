@@ -1,5 +1,5 @@
-﻿@page "/"
-@page "/campaigns"
+﻿@page "/campaigns"
+@using Geopixel.Web.Data.Models
 @layout MainLayout
 
 <PageTitle>Campanhas</PageTitle>
@@ -7,30 +7,61 @@
 <MudPaper Class="pa-4">
     <MudPaper Class="pa-4 mt-4">
         <MudText Typo="Typo.h5">Lista de Campanhas</MudText>
+        @* <MudItem> *@
+        @*     <MudText>Ativas:</MudText> *@
+        @*     <MudText @bind="Information.Active"></MudText> *@
+        @* </MudItem> *@
+        @* <MudItem> *@
+        @*     <MudText>Agendadas:</MudText> *@
+        @*     <MudText @bind="Information.Scheduled"></MudText> *@
+        @* </MudItem> *@
+        @* <MudItem> *@
+        @*     <MudText>Encerradas:</MudText> *@
+        @*     <MudText @bind="Information.Finished"></MudText> *@
+        @* </MudItem> *@
     </MudPaper>
 
-    <MudTable Items="@CampaignsList" Loading="@loading">
+    <MudTable T="Campaign" ServerData="ServerReload" Dense="true" Hover="true"
+              @ref="table" FixedHeader="true" FixedFooter="true" SortLabel="Sort By">
         <ToolBarContent>
             <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/Geopixel.Web/campaigns/create" StartIcon="@Icons.Material.Filled.Add">
                 Criar Campanha
             </MudButton>
+            <MudSpacer />
+            <MudTextField T="string" Value="searchString" Immediate="true" ValueChanged="@(s => OnSearch(s))" Placeholder="Search" Adornment="Adornment.Start"
+                          AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
         </ToolBarContent>
         <HeaderContent>
             <MudTh>Título</MudTh>
             <MudTh>Descrição</MudTh>
             <MudTh>Data de Início</MudTh>
             <MudTh>Data de Fim</MudTh>
+            <MudTh>Status</MudTh>
             <MudTh>Ações</MudTh>
         </HeaderContent>
         <RowTemplate>
             <MudTd DataLabel="Título">@context.Title</MudTd>
             <MudTd DataLabel="Descrição">@context.Description</MudTd>
-            <MudTd DataLabel="Data de Início">@context.Start.Value.ToShortDateString()</MudTd>
-            <MudTd DataLabel="Data de Fim">@context.End.Value.ToShortDateString()</MudTd>
+            <MudTd DataLabel="Data de Início">@context.Start?.ToShortDateString()</MudTd>
+            <MudTd DataLabel="Data de Fim">@context.End?.ToShortDateString()</MudTd>
+            <MudTd DataLabel="Status">
+                <MudChip Color="@GetStatusColor(context.Status.ToString())">
+                    @context.Status
+                </MudChip>
+            </MudTd>
             <MudTd DataLabel="Ações">
                 <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" OnClick="@(() => EditCampaign(context))" />
                 <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error" OnClick="@(() => DeleteCampaign(context))" />
             </MudTd>
         </RowTemplate>
+        <NoRecordsContent>
+            <MudText>Sem resultados para a pesquisa!</MudText>
+        </NoRecordsContent>
+        <LoadingContent>
+            <MudText>Carregando...</MudText>
+        </LoadingContent>
+        <PagerContent>
+            <MudTablePager PageSizeOptions="new int[]{5, 10, 20, 50}"/>
+        </PagerContent>
     </MudTable>
 </MudPaper>

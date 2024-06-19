@@ -1,4 +1,5 @@
-﻿using Geopixel.Web.Data.Models;
+﻿using Geopixel.Web.Data.Enums;
+using Geopixel.Web.Data.Models;
 using Geopixel.Web.Data.Services.Interfaces;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
@@ -19,12 +20,25 @@ public partial class UpdateCampaign : ComponentBase
 
     protected override async Task OnParametersSetAsync()
     {
-        Campaign = await CampaignService.GetCampaignByIdAsync(CampaignId);
-
-        if (Campaign != null)
+        try
         {
-            DateRange = new DateRange(Campaign.Start, Campaign.End);
+            var response = await CampaignService.GetCampaignByIdAsync(CampaignId);
+            
+            if (response.IsSuccess)
+            {
+                Campaign = response.Data;
+                DateRange = new DateRange(Campaign.Start, Campaign.End);
+            }
+            else
+            {
+                Snackbar.Add($"Erro na leitura da campanha", Severity.Error);
+            }
         }
+        catch (Exception e)
+        {
+            Snackbar.Add($"Erro ao invocar método de leitura: {e.Message}", Severity.Error);
+        }
+
     }
     
     private string ReturnItemDescription(int index)
@@ -75,6 +89,16 @@ public partial class UpdateCampaign : ComponentBase
 
         if (Form.IsValid)
         {
+            Campaign.Start = DateRange.Start;
+            Campaign.End = DateRange.End;
+
+            if (Campaign.Start > DateTime.Now) Campaign.Status = CampaignStatus.Scheduled;
+            if (Campaign.Start <= DateTime.Now && Campaign.End >= DateTime.Now) Campaign.Status = CampaignStatus.Active;
+            if (Campaign.End < DateTime.Now) Campaign.Status = CampaignStatus.Finished;
+
+            if (Campaign.Items[7].Description == string.Empty) Campaign.Items.RemoveAt(7);
+            if (Campaign.Items[6].Description == string.Empty) Campaign.Items.RemoveAt(6);
+            
             await CampaignService.UpdateCampaignAsync(Campaign);
             
             Snackbar.Add("Campanha atualizada!", Severity.Success);

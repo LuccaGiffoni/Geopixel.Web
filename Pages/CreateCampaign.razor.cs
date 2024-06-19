@@ -1,4 +1,5 @@
-﻿using Geopixel.Web.Data.Models;
+﻿using Geopixel.Web.Data.Enums;
+using Geopixel.Web.Data.Models;
 using Geopixel.Web.Data.Services.Interfaces;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
@@ -24,13 +25,22 @@ public partial class CreateCampaign : ComponentBase
             
             Campaign.CampaignId = Guid.NewGuid().ToString();
 
+            if (Campaign.Start > DateTime.Now) Campaign.Status = CampaignStatus.Scheduled;
+            if (Campaign.Start <= DateTime.Now && Campaign.End >= DateTime.Now) Campaign.Status = CampaignStatus.Active;
+            if (Campaign.End < DateTime.Now) Campaign.Status = CampaignStatus.Finished;
+
             if (Campaign.Items[7].Description == string.Empty) Campaign.Items.RemoveAt(7);
             if (Campaign.Items[6].Description == string.Empty) Campaign.Items.RemoveAt(6);
+
+            foreach (var item in Campaign.Items)
+            {
+                item.InitialQuantity = item.Quantity;
+            }
             
             await CampaignService.CreateCampaignAsync(Campaign);
             Snackbar.Add("Campanha criada com sucesso!", Severity.Success);
             
-            Navigation.NavigateTo("/campaigns");
+            Navigation.NavigateTo("/Geopixel.Web/campaigns");
         }
         catch (Exception ex)
         {

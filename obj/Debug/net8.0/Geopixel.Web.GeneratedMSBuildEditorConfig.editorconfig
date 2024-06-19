@@ -22,20 +22,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\lucca\Developer\.NET\Geopixel\Geopixel.Web
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/lucca/Developer/.NET/Geopixel/Geopixel.Web/Pages/Campaigns.razor]
+build_metadata.AdditionalFiles.TargetPath = 
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FtcGFpZ25zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lucca/Developer/.NET/Geopixel/Geopixel.Web/Pages/CreateCampaign.razor]
+build_metadata.AdditionalFiles.TargetPath = 
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlQ2FtcGFpZ24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lucca/Developer/.NET/Geopixel/Geopixel.Web/Pages/UpdateCampaign.razor]
+build_metadata.AdditionalFiles.TargetPath = 
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBkYXRlQ2FtcGFpZ24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/lucca/Developer/.NET/Geopixel/Geopixel.Web/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/lucca/Developer/.NET/Geopixel/Geopixel.Web/Data/Pages/Campaigns.razor]
-build_metadata.AdditionalFiles.TargetPath = RGF0YVxQYWdlc1xDYW1wYWlnbnMucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/lucca/Developer/.NET/Geopixel/Geopixel.Web/Data/Pages/CreateCampaign.razor]
-build_metadata.AdditionalFiles.TargetPath = RGF0YVxQYWdlc1xDcmVhdGVDYW1wYWlnbi5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/lucca/Developer/.NET/Geopixel/Geopixel.Web/Data/Pages/UpdateCampaign.razor]
-build_metadata.AdditionalFiles.TargetPath = RGF0YVxQYWdlc1xVcGRhdGVDYW1wYWlnbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/lucca/Developer/.NET/Geopixel/Geopixel.Web/Layout/MainLayout.razor]
