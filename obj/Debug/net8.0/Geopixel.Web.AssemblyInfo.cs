@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Geopixel.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2daad8a74a730767f5001831f96f15601cd1a984")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+41518e502ad6df1e785f9a6542a16c6d69023e77")]
 [assembly: System.Reflection.AssemblyProductAttribute("Geopixel.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Geopixel.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

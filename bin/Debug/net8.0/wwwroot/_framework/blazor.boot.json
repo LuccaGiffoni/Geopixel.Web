@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Geopixel.Web",
   "resources": {
-    "hash": "sha256-cUPQDsui+4AaIEP+GCrJCluo/diJ6deQp4vcBgYWvig=",
+    "hash": "sha256-1mXwdDTWzVqfnxEmdfA6ZM4IlFWsMRC4ntkIt91K4YQ=",
     "jsModuleNative": {
       "dotnet.native.8.0.5.tyegmdstzs.js": "sha256-boyHe+0RMZDkzBKGhsrnXPhPg3oZ6UqJnTUzngJPjNY="
     },
@@ -211,10 +211,10 @@
       "mscorlib.wasm": "sha256-XvLAB5IyfVSmj5aaGnPwgVFaaZz8jXmbN8WmeopiPBM=",
       "netstandard.wasm": "sha256-TbMssdnuTiKq1gjTPkpgROAuWN0uhvPnagvWR+wAgNs=",
       "System.Private.CoreLib.wasm": "sha256-sscg+Efk8ROPq+q4IVmhShzITuoOYvB8Bsc+Mp9vcSM=",
-      "Geopixel.Web.wasm": "sha256-s//GnymvH/yfmc1typALzm6lNj/5WvL4rggjwTIs8ts="
+      "Geopixel.Web.wasm": "sha256-ryV1bQ0fVZnHb8n+/EL/5orkIsyMjrhT77ezY+zZxho="
     },
     "pdb": {
-      "Geopixel.Web.pdb": "sha256-ZhIgOUDh7liZ3f0/KlGQa/GFOjI7tO7HK8GbZLPENk0="
+      "Geopixel.Web.pdb": "sha256-SJpcMpEyqXtU6fGenpMeQcwav6XsPTqbfpgZ1Vd+b9M="
     }
   },
   "cacheBootResources": true,
