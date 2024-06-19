@@ -53,6 +53,6 @@ public partial class CreateCampaign : ComponentBase
         }
         
         await Form.ResetAsync();
-        Navigation.NavigateTo("/campaigns");
+        Navigation.NavigateTo("/Geopixel.Web/campaigns");
     }
 }

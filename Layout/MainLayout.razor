@@ -7,27 +7,8 @@
 <MudLayout>
     <MudAppBar>
         <MudText Typo="Typo.h5">Geopixel | Roleta</MudText>
-        <MudSpacer />
-        <MudIconButton Icon="@Icons.TwoTone.List" OnClick="@((e) => DrawerToggle())"/>
     </MudAppBar>
-
-    <MudDrawer @bind-Open="@_drawerOpen">
-        <MudNavMenu Class="pa-2 mt-4">
-            <MudNavLink Icon="@Icons.TwoTone.Home" Href="/campaigns" Match="NavLinkMatch.All">Home</MudNavLink>
-            <MudNavLink Icon="@Icons.TwoTone.Add" Href="/campaigns/create" Match="NavLinkMatch.Prefix">Criar</MudNavLink>
-        </MudNavMenu>
-    </MudDrawer>
-
     <MudMainContent>
         @Body
     </MudMainContent>
 </MudLayout>
-
-@code {
-    bool _drawerOpen = false;
-
-    void DrawerToggle()
-    {
-        _drawerOpen = !_drawerOpen;
-    }
-}

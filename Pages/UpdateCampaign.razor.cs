@@ -78,7 +78,7 @@ public partial class UpdateCampaign : ComponentBase
             await CampaignService.UpdateCampaignAsync(Campaign);
             
             Snackbar.Add("Campanha atualizada!", Severity.Success);
-            Navigation.NavigateTo("/campaigns");
+            Navigation.NavigateTo("/Geopixel.Web/campaigns");
         }
     }
     
@@ -91,6 +91,6 @@ public partial class UpdateCampaign : ComponentBase
         }
         
         await Form.ResetAsync();
-        Navigation.NavigateTo("/campaigns");
+        Navigation.NavigateTo("/Geopixel.Web/campaigns");
     }
 }

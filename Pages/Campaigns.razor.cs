@@ -34,7 +34,7 @@ namespace Geopixel.Web.Pages
         
         private void EditCampaign(Campaign campaign)
         {
-            Navigation.NavigateTo($"/campaigns/update/{campaign.CampaignId}");
+            Navigation.NavigateTo($"/Geopixel.Web/campaigns/update/{campaign.CampaignId}");
         }
 
         private async Task DeleteCampaign(Campaign campaign)
